@@ -1,13 +1,4 @@
-2020-05-31 19:06:37,341 ERROR: Exception on /edit_profile [POST] [in /Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1283, in _execute_context
-    self.dialect.do_execute(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 590, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2020-05-31 21:28:17,464 ERROR: Exception on /user/Mark2 [GET] [in /Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -23,51 +14,25 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/routes.py", line 84, in edit_profile
-    db.session.commit()
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
-    self.transaction.commit()
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 504, in commit
-    self._prepare_impl()
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
-    self.session.flush()
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
-    self._flush(objects)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
-    compat.raise_(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
-    raise exception
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
-    flush_context.execute()
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
-    persistence.save_obj(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 230, in save_obj
-    _emit_update_statements(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 994, in _emit_update_statements
-    c = cached_connections[connection].execute(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1020, in execute
-    return meth(self, multiparams, params)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1323, in _execute_context
-    self._handle_dbapi_exception(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1517, in _handle_dbapi_exception
-    util.raise_(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
-    raise exception
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1283, in _execute_context
-    self.dialect.do_execute(
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 590, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('Mark', '', 4)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
+  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/routes.py", line 84, in user
+    return render_template('user.html', user=user, posts=posts.items,
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/templates/user.html", line 37, in template
+    {% endif %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2020-05-31 21:28:36,715 INFO: Microblog startup [in /Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/__init__.py:44]
