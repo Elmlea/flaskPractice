@@ -1,4 +1,4 @@
-2020-05-31 21:28:17,464 ERROR: Exception on /user/Mark2 [GET] [in /Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py:1891]
+2020-05-31 22:07:32,374 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MiwiZXhwIjoxNTkwOTU5ODI0LjgzMjY5fQ.DtKObIZ6Lp0AZ5Dcx4U_aSZTEN6Y3eQu5QoKk4E82WA [GET] [in /Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,27 +12,26 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/routes.py", line 84, in user
-    return render_template('user.html', user=user, posts=posts.items,
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/loaders.py", line 127, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/templates/user.html", line 37, in template
-    {% endif %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2020-05-31 21:28:36,715 INFO: Microblog startup [in /Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/__init__.py:44]
+  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/routes.py", line 173, in reset_password
+    user = User.verify_reset_password_token(token)
+AttributeError: type object 'User' has no attribute 'verify_reset_password_token'
+2020-05-31 22:11:16,618 INFO: Microblog startup [in /Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/__init__.py:46]
+2020-05-31 22:11:41,224 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MiwiZXhwIjoxNTkwOTYwMDg0Ljg5Njk0NX0.qadNtIgJgPIHTFbGpb9WMz-p1O_SppIAQa2VB1Io4VM [GET] [in /Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/markwharry/.pyenv/versions/3.8.1/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/routes.py", line 173, in reset_password
+    user = User.verify_reset_password_token(token)
+AttributeError: type object 'User' has no attribute 'verify_reset_password_token'
+2020-05-31 22:13:28,826 INFO: Microblog startup [in /Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/__init__.py:46]
+2020-05-31 22:17:10,041 INFO: Microblog startup [in /Users/markwharry/Dropbox/Mark/Files/Programming/PyCharm/microblog/app/__init__.py:46]
